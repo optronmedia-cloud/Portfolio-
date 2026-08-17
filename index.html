@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ajay More — Workday Finance Functional Consultant portfolio">
+  <title>Ajay More | Workday Finance Functional Consultant</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-2: #173f5f;
+      --slate: #52606d;
+      --muted: #7b8794;
+      --line: #d9e2ec;
+      --soft: #f5f7fa;
+      --white: #ffffff;
+      --accent: #2f6f95;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: var(--white);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #102a43 0%, #173f5f 100%);
+      color: var(--white);
+      padding: 76px 0 68px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #b9d5e8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      margin: 18px 0 24px;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 500;
+      color: #d9eaf5;
+    }
+
+    .summary {
+      max-width: 820px;
+      margin: 0;
+      color: #edf5fa;
+      font-size: 1.05rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 28px;
+      color: #d9eaf5;
+      font-size: 0.95rem;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      overflow-x: auto;
+      padding: 14px 0;
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: var(--slate);
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    nav a:hover {
+      color: var(--navy);
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--soft);
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--slate);
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .expertise-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .expertise-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .expertise-card p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 0.94rem;
+    }
+
+    .case-study {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 32px;
+      margin-top: 20px;
+    }
+
+    .case-number {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .case-study h3 {
+      margin: 0 0 20px;
+      font-size: 1.45rem;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .case-part h4 {
+      margin: 0 0 7px;
+      font-size: 0.84rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .case-part p,
+    .case-part ul {
+      margin: 0;
+      color: var(--slate);
+      font-size: 0.94rem;
+    }
+
+    .case-part ul {
+      padding-left: 18px;
+    }
+
+    .experience-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin: 8px 0 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.12rem;
+    }
+
+    .info-card p {
+      margin: 5px 0;
+      color: var(--slate);
+    }
+
+    .credential {
+      margin-bottom: 22px;
+    }
+
+    .credential:last-child {
+      margin-bottom: 0;
+    }
+
+    .credential strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .credential span {
+      color: var(--slate);
+      font-size: 0.94rem;
+    }
+
+    .highlight-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .highlight {
+      padding: 22px;
+      border-left: 3px solid var(--accent);
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 3px;
+    }
+
+    .highlight span {
+      color: var(--slate);
+      font-size: 0.88rem;
+    }
+
+    footer {
+      background: #0b2239;
+      color: var(--white);
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    footer h2 {
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #c8d8e5;
+      margin: 7px 0;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 22px;
+      color: #e5eef5;
+      font-weight: 600;
+    }
+
+    @media (max-width: 820px) {
+      .expertise-grid,
+      .case-grid,
+      .two-col,
+      .highlight-row {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 58px 0 52px;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+
+      .case-study {
+        padding: 24px;
+      }
+    }
+
+    @media print {
+      nav { display: none; }
+      header { padding: 35px 0; }
+      section { padding: 35px 0; }
+      .case-study, .info-card, .expertise-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="top">
+    <div class="container">
+      <p class="eyebrow">Workday Finance • Business Analysis • ERP Transformation</p>
+      <h1>Ajay More</h1>
+      <p class="role">Workday Finance Functional Consultant</p>
+      <p class="summary">
+        Results-oriented Business Analyst with 1.2 years of client-facing experience in business process analysis,
+        requirements gathering, functional documentation, stakeholder engagement, and UAT. Workday Finance trained
+        on the 2025R release, with functional understanding across Financial Accounting, FDM &amp; Worktags,
+        Business Assets, Banking &amp; Settlement, Financial Reporting, Procurement &amp; Expenses. Focused on
+        translating business requirements into clear functional solutions and supporting finance transformation.
+      </p>
+      <div class="contact">
+        <a href="mailto:ajaymore13@outlook.com">ajaymore13@outlook.com</a>
+        <a href="tel:+917756950969">+91 7756950969</a>
+        <span>Maharashtra, India</span>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a href="#expertise">Expertise</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Education &amp; Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="expertise">
+      <div class="container">
+        <p class="section-label">Functional capabilities</p>
+        <h2>Core Workday Expertise</h2>
+        <p class="section-intro">
+          Functional areas and business-analysis capabilities supported by Ajay's Workday Finance training and
+          professional experience.
+        </p>
+
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <h3>Financial Accounting</h3>
+            <p>Chart of Accounts, accounting periods, journal entries, accounting rules, and financial close processes.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>FDM &amp; Worktags</h3>
+            <p>Financial Data Model concepts and multidimensional transaction tagging using Cost Centres, Funds, Grants, and Programs.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Business Assets</h3>
+            <p>Asset lifecycle concepts covering acquisition, capitalization, depreciation schedules, disposals, and general-ledger integration.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Banking &amp; Settlement</h3>
+            <p>Bank account configuration, payment processing, and bank reconciliation workflows connecting operational transactions to financial records.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Financial Reporting</h3>
+            <p>Understanding of balance sheets, income statements, custom financial reports, report fields, and data sources.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Procurement &amp; Expenses</h3>
+            <p>Procurement workflows and employee expense management, including transaction flow into the financial accounting layer.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Requirements &amp; Process Analysis</h3>
+            <p>BRDs, FRDs, functional specifications, gap analysis, As-Is / To-Be modelling, process mapping, and user stories.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Testing &amp; Validation</h3>
+            <p>UAT scenario definition, client-side testing coordination, validation, documentation, and sign-off support.</p>
+          </article>
+
+          <article class="expertise-card">
+            <h3>Stakeholder Engagement</h3>
+            <p>Client engagement, workshop facilitation, expectation management, executive reporting, and escalation handling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="container">
+        <p class="section-label">Selected engagement experience</p>
+        <h2>Key Project &amp; Implementation Case Studies</h2>
+        <p class="section-intro">
+          The following case studies are derived from Ajay's documented work on the Rithm Capital engagement.
+          They describe business-analysis outcomes and Workday-relevant functional capabilities without implying
+          direct Workday implementation ownership that is not stated in the resume.
+        </p>
+
+        <article class="case-study">
+          <span class="case-number">Case Study 01</span>
+          <h3>Enterprise Financial Requirements &amp; Process Analysis</h3>
+          <div class="case-grid">
+            <div class="case-part">
+              <h4>Business Context / Scope</h4>
+              <p>
+                Supported Rithm Capital, a large U.S. mortgage-focused asset management firm, on enterprise data
+                initiatives involving financial workflows, reporting hierarchies, and data governance.
+              </p>
+            </div>
+            <div class="case-part">
+              <h4>Functional Approach &amp; Configuration</h4>
+              <ul>
+                <li>Elicited and validated requirements with finance and business stakeholders.</li>
+                <li>Performed gap analysis and developed As-Is / To-Be process maps.</li>
+                <li>Created BRDs, FRDs, and functional specifications with end-to-end traceability.</li>
+                <li>Mapped financial data flows and business logic to system-level requirements.</li>
+              </ul>
+            </div>
+            <div class="case-part">
+              <h4>Business Outcomes &amp; ROI</h4>
+              <ul>
+                <li>Established a structured source of truth across business, QA, and delivery teams.</li>
+                <li>Improved alignment between business requirements and delivered outcomes.</li>
+                <li>Built enterprise-level exposure directly relevant to finance ERP transformation engagements.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-study">
+          <span class="case-number">Case Study 02</span>
+          <h3>UAT, Stakeholder Alignment &amp; Delivery Governance</h3>
+          <div class="case-grid">
+            <div class="case-part">
+              <h4>Business Context / Scope</h4>
+              <p>
+                Coordinated business and delivery stakeholders through requirements workshops, testing activities,
+                progress reporting, and client-side validation for a high-stakes enterprise engagement.
+              </p>
+            </div>
+            <div class="case-part">
+              <h4>Functional Approach &amp; Configuration</h4>
+              <ul>
+                <li>Defined UAT test scenarios with QA teams.</li>
+                <li>Coordinated client testing sessions and documented sign-off.</li>
+                <li>Facilitated business review workshops and captured unstated requirements.</li>
+                <li>Presented executive dashboards and sprint reports to leadership.</li>
+              </ul>
+            </div>
+            <div class="case-part">
+              <h4>Business Outcomes &amp; ROI</h4>
+              <ul>
+                <li>Maintained zero client escalations across 1.2 years of client-facing delivery.</li>
+                <li>Supported informed decisions on delivery timelines and resources.</li>
+                <li>Built trusted relationships with finance leads, data owners, and project sponsors.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <p class="section-label">Professional experience</p>
+        <h2>Experience</h2>
+        <div class="info-card">
+          <h3>Livegage Technologies Pvt Ltd — Business Analyst</h3>
+          <div class="experience-meta">
+            <span>1.2 years</span>
+            <span>Client: Rithm Capital</span>
+            <span>Finance &amp; enterprise data initiatives</span>
+          </div>
+          <p>
+            Primary liaison between business users and the internal delivery team, responsible for requirements
+            elicitation, process analysis, functional documentation, UAT coordination, stakeholder communication,
+            executive reporting, and delivery support.
+          </p>
+          <div class="highlight-row">
+            <div class="highlight">
+              <strong>1.2 years</strong>
+              <span>Client-facing delivery experience</span>
+            </div>
+            <div class="highlight">
+              <strong>19 members</strong>
+              <span>Cross-functional team coordinated</span>
+            </div>
+            <div class="highlight">
+              <strong>0 escalations</strong>
+              <span>Across the documented client engagement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="container">
+        <p class="section-label">Academic &amp; professional foundation</p>
+        <h2>Education &amp; Certifications</h2>
+
+        <div class="two-col">
+          <div class="info-card">
+            <h3>Certifications &amp; Training</h3>
+            <div class="credential">
+              <strong>Workday Finance Functional Training — 2025R</strong>
+              <span>
+                Trained in Financial Accounting, FDM &amp; Worktags, Business Assets, Banking &amp; Settlement,
+                Financial Reporting, and Procurement &amp; Expenses.
+              </span>
+            </div>
+            <div class="credential">
+              <strong>Financial Modelling &amp; Valuation Certification — In Progress</strong>
+              <span>
+                Financial Statement Analysis, DCF Valuation, and Excel-based Financial Modelling.
+              </span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Education</h3>
+            <div class="credential">
+              <strong>Bachelor of Arts (Psychology)</strong>
+              <span>YCMOU, Nashik</span>
+            </div>
+            <p>
+              Academic background supporting active listening, stakeholder empathy, and communication in
+              client-facing environments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <p class="section-label">Professional profile</p>
+        <h2>Why Workday Finance</h2>
+        <p class="section-intro">
+          Ajay combines Workday Finance functional training with practical business-analysis experience in
+          requirements, process modelling, financial data flows, UAT, and stakeholder management. His focus is
+          building the functional consulting capability needed to bridge finance stakeholders and enterprise systems.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h2>Let's connect</h2>
+      <p>Workday Finance Functional Consultant</p>
+      <div class="footer-contact">
+        <a href="mailto:ajaymore13@outlook.com">ajaymore13@outlook.com</a>
+        <a href="tel:+917756950969">+91 7756950969</a>
+        <span>Maharashtra, India</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
