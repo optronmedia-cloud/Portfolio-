@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ajay More — Workday Finance Specialist portfolio">
+<title>Ajay More | Workday Finance Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1D29;
+    --ink-2:#132E3F;
+    --ivory:#F3EFE6;
+    --ivory-dim:#A9BAC4;
+    --paper:#FAF8F3;
+    --paper-2:#F1EDE2;
+    --line:#DED6C4;
+    --line-dark:rgba(243,239,230,0.14);
+    --graphite:#232C34;
+    --slate:#5B6670;
+    --muted:#8B8577;
+    --teal:#0F6B62;
+    --teal-deep:#0A4A44;
+    --gold:#A9782F;
+    --white:#FFFFFF;
+    --shadow: 0 1px 2px rgba(13,29,41,0.04), 0 12px 28px -18px rgba(13,29,41,0.28);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    margin:0;
+    color:var(--graphite);
+    background:var(--paper);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--teal); color:var(--white); }
+
+  .container{ width:min(1120px, calc(100% - 48px)); margin:0 auto; }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0; z-index:200;
+    background:var(--teal); color:var(--white); padding:12px 18px;
+    font-weight:600; border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal); outline-offset:3px; border-radius:2px;
+  }
+
+  /* ---------- ambient chrome ---------- */
+  #scrollProgress{
+    position:fixed; top:0; left:0; width:0%; height:3px; z-index:100;
+    background:linear-gradient(90deg,var(--teal),var(--gold));
+    transition:width .08s linear;
+  }
+  .cursor-glow{
+    position:fixed; width:480px; height:480px; border-radius:50%;
+    pointer-events:none; z-index:0; transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(15,107,98,0.10), transparent 65%);
+    transition:opacity .3s ease; opacity:0;
+  }
+
+  /* ---------- ledger grain backdrop ---------- */
+  .ledger-grid{
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(rgba(243,239,230,0.05) 0 1px, transparent 1px 42px),
+      repeating-linear-gradient(90deg, rgba(243,239,230,0.04) 0 1px, transparent 1px 42px);
+    mask-image:linear-gradient(180deg, rgba(0,0,0,0.9), transparent 88%);
+    pointer-events:none;
+  }
+
+  /* ================= HEADER / HERO ================= */
+  header{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(1100px 620px at 88% -10%, rgba(169,120,47,0.16), transparent 60%),
+      radial-gradient(760px 560px at -8% 30%, rgba(15,107,98,0.28), transparent 60%),
+      linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--ivory);
+    padding:104px 0 84px;
+    min-height:94vh;
+    display:flex;
+    align-items:center;
+  }
+
+  header .container{ position:relative; z-index:2; }
+
+  .eyebrow{
+    display:flex; align-items:center; gap:14px;
+    margin:0 0 28px;
+    color:var(--ivory-dim);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; font-weight:600;
+    letter-spacing:0.22em; text-transform:uppercase;
+  }
+  .eyebrow::before{ content:""; width:44px; height:1px; background:var(--gold); flex:none; }
+
+  h1{
+    margin:0;
+    max-width:920px;
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    line-height:0.98;
+    letter-spacing:-0.02em;
+    color:var(--white);
+  }
+
+  .role{
+    margin:20px 0 26px;
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.2rem, 2.2vw, 1.55rem);
+    color:#CFE3DE;
+  }
+
+  .summary{
+    max-width:660px;
+    margin:0;
+    color:#D7E1E7;
+    font-size:1.04rem;
+  }
+
+  .contact{
+    display:flex; flex-wrap:wrap; gap:10px 26px;
+    margin-top:30px;
+    font-family:'IBM Plex Mono', monospace;
+    color:#CFE3DE; font-size:0.86rem;
+  }
+  .contact a{ border-bottom:1px solid rgba(207,227,222,0.3); padding-bottom:2px; transition:border-color .2s, color .2s; }
+  .contact a:hover{ border-color:var(--gold); color:var(--white); }
+
+  /* ledger snapshot — signature element */
+  .ledger-card{
+    margin-top:52px;
+    max-width:560px;
+    background:rgba(19,46,63,0.55);
+    border:1px solid var(--line-dark);
+    border-radius:10px;
+    backdrop-filter:blur(6px);
+    overflow:hidden;
+  }
+  .ledger-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:13px 20px;
+    border-bottom:1px solid var(--line-dark);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ivory-dim);
+  }
+  .ledger-head .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; margin-right:8px; box-shadow:0 0 0 3px rgba(169,120,47,0.18); }
+  .ledger-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 20px;
+    border-bottom:1px solid var(--line-dark);
+    font-size:0.93rem;
+  }
+  .ledger-row:last-child{ border-bottom:none; background:rgba(15,107,98,0.14); }
+  .ledger-row .label{ color:#C3D4CE; }
+  .ledger-row .value{ font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--white); font-variant-numeric:tabular-nums; }
+  .ledger-row.balance .label, .ledger-row.balance .value{ color:#8FE3C7; }
+
+  /* ================= NAV ================= */
+  nav{
+    border-bottom:1px solid var(--line);
+    background:rgba(250,248,243,0.92);
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(10px);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px;
+    padding:0;
+  }
+  .nav-brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; font-weight:600; letter-spacing:0.06em;
+    color:var(--graphite);
+    padding:16px 0;
+    flex:none;
+  }
+  .nav-links{
+    display:flex; gap:30px;
+    overflow-x:auto;
+    padding:16px 0;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{ display:none; }
+  nav a.nav-link{
+    position:relative;
+    color:var(--slate);
+    font-size:0.82rem; font-weight:600;
+    letter-spacing:0.02em;
+    padding-bottom:4px;
+  }
+  nav a.nav-link::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+    background:var(--teal); transform:scaleX(0); transform-origin:left;
+    transition:transform .25s ease;
+  }
+  nav a.nav-link:hover{ color:var(--graphite); }
+  nav a.nav-link.active{ color:var(--ink); }
+  nav a.nav-link.active::after{ transform:scaleX(1); }
+
+  /* ================= SECTIONS ================= */
+  section{ padding:88px 0; position:relative; }
+  section:nth-of-type(even){ background:var(--paper-2); }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .section-rule{ display:flex; align-items:center; gap:14px; margin:0 0 14px; }
+  .section-rule span.line{ height:1px; width:38px; background:var(--gold); flex:none; }
+  .section-rule b{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--teal); font-weight:600;
+  }
+
+  h2{
+    margin:0 0 14px;
+    color:var(--ink);
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(1.85rem, 3.2vw, 2.65rem);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+
+  .section-intro{ max-width:740px; margin:0 0 40px; color:var(--slate); font-size:1.01rem; }
+
+  /* ---- expertise ---- */
+  .expertise-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+
+  .expertise-card{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px 24px 24px;
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .expertise-card:hover{ transform:translateY(-4px); border-color:var(--teal); box-shadow:0 18px 34px -20px rgba(15,107,98,0.35); }
+
+  .gl-code{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem; font-weight:600; letter-spacing:0.08em;
+    color:var(--teal);
+    background:rgba(15,107,98,0.08);
+    border:1px solid rgba(15,107,98,0.22);
+    border-radius:5px;
+    padding:3px 8px;
+    margin-bottom:14px;
+  }
+
+  .expertise-card h3{ margin:0 0 8px; font-size:1.04rem; font-weight:700; color:var(--graphite); }
+  .expertise-card p{ margin:0; color:var(--slate); font-size:0.93rem; }
+
+  /* ---- case studies ---- */
+  .case-study{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:3px solid var(--line);
+    border-radius:10px;
+    padding:34px 32px;
+    margin-top:22px;
+    box-shadow:var(--shadow);
+    transition:border-left-color .3s ease, padding-left .3s ease;
+  }
+  .case-study:hover{ border-left-color:var(--gold); padding-left:38px; }
+
+  .case-number{
+    display:inline-block; margin-bottom:14px;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold); font-size:0.72rem; font-weight:700;
+    letter-spacing:0.14em; text-transform:uppercase;
+  }
+  .case-study h3{ margin:0 0 22px; font-family:'Fraunces', Georgia, serif; font-weight:600; font-size:1.5rem; color:var(--ink); }
+
+  .case-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .case-part h4{ margin:0 0 8px; font-size:0.76rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; }
+  .case-part p, .case-part ul{ margin:0; color:var(--slate); font-size:0.93rem; }
+  .case-part ul{ padding-left:18px; }
+  .case-part li + li{ margin-top:6px; }
+
+  /* ---- experience ---- */
+  .experience-meta{
+    display:flex; flex-wrap:wrap; gap:9px 16px; margin:10px 0 22px;
+  }
+  .experience-meta span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem; color:var(--teal);
+    background:rgba(15,107,98,0.08);
+    border:1px solid rgba(15,107,98,0.2);
+    border-radius:20px; padding:4px 12px;
+  }
+
+  .info-card{
+    background:var(--white); border:1px solid var(--line); border-radius:10px;
+    padding:32px; box-shadow:var(--shadow);
+  }
+  .info-card h3{ margin:0 0 4px; font-family:'Fraunces', Georgia, serif; font-size:1.2rem; font-weight:600; color:var(--ink); }
+  .info-card p{ margin:5px 0; color:var(--slate); }
+
+  .highlight-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
+  .highlight{
+    position:relative; overflow:hidden;
+    padding:24px 22px;
+    border-left:3px solid var(--teal);
+    background:var(--paper);
+    border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    border-radius:0 10px 10px 0;
+  }
+  .highlight::after{
+    content:""; position:absolute; right:-28px; bottom:-36px; width:100px; height:100px;
+    border-radius:50%; border:1px solid rgba(15,107,98,0.14);
+  }
+  .highlight strong{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:1.5rem; font-weight:600;
+    margin-bottom:4px; color:var(--ink); font-variant-numeric:tabular-nums;
+  }
+  .highlight span{ color:var(--slate); font-size:0.86rem; }
+
+  /* ---- credentials ---- */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .credential{ margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line); }
+  .credential:last-child{ margin-bottom:0; padding-bottom:0; border-bottom:none; }
+  .credential-top{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .credential strong{ display:block; font-weight:700; color:var(--graphite); }
+  .credential span{ color:var(--slate); font-size:0.94rem; }
+  .badge-progress{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; font-weight:700;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--gold);
+    background:rgba(169,120,47,0.1); border:1px solid rgba(169,120,47,0.3);
+    border-radius:20px; padding:3px 10px;
+  }
+  .badge-progress .pulse{
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.4; transform:scale(1.4);} }
+
+  /* ---- contact / cta ---- */
+  .cta-row{ display:flex; flex-wrap:wrap; gap:16px; margin-top:30px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px; border-radius:8px;
+    font-weight:600; font-size:0.94rem;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--white); box-shadow:0 10px 24px -12px rgba(13,29,41,0.5); }
+  .btn-primary:hover{ transform:translateY(-2px); background:var(--teal-deep); }
+  .btn-ghost{ border:1px solid var(--line); color:var(--graphite); }
+  .btn-ghost:hover{ border-color:var(--teal); color:var(--teal-deep); transform:translateY(-2px); }
+
+  /* ================= FOOTER ================= */
+  footer{ background:var(--ink); color:var(--ivory); padding:56px 0; text-align:center; }
+  footer h2{ color:var(--white); margin-bottom:10px; }
+  footer p{ color:var(--ivory-dim); margin:7px 0; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.04em; text-transform:uppercase; }
+  .footer-contact{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px 26px; margin-top:26px; color:#DCE7E3; font-weight:600; font-family:'IBM Plex Mono', monospace; font-size:0.88rem; }
+  .footer-contact a{ border-bottom:1px solid rgba(220,231,227,0.3); padding-bottom:2px; transition:border-color .2s, color .2s; }
+  .footer-contact a:hover{ border-color:var(--gold); color:var(--white); }
+  .footer-rule{ margin:36px auto 0; width:min(120px,40%); height:1px; background:rgba(243,239,230,0.15); }
+  .footer-note{ margin-top:22px !important; font-size:0.72rem !important; color:rgba(169,186,196,0.6) !important; }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:900px){
+    .expertise-grid{ grid-template-columns:repeat(2,1fr); }
+    .case-grid{ grid-template-columns:1fr; gap:20px; }
+    .two-col{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:640px){
+    header{ padding:80px 0 60px; min-height:auto; }
+    section{ padding:60px 0; }
+    .expertise-grid{ grid-template-columns:1fr; }
+    .highlight-row{ grid-template-columns:1fr; }
+    .case-study{ padding:26px 22px; }
+    .case-study:hover{ padding-left:26px; }
+    .nav-brand{ display:none; }
+    .ledger-card{ margin-top:38px; }
+    .cta-row{ flex-direction:column; }
+    .btn{ justify-content:center; }
+  }
+
+  @media print{
+    nav, .cursor-glow, #scrollProgress{ display:none; }
+    header{ padding:35px 0; min-height:auto; color:#000; background:none; }
+    h1, .role, .summary, .contact{ color:#000 !important; }
+    section{ padding:35px 0; }
+    .case-study, .info-card, .expertise-card{ break-inside:avoid; box-shadow:none; }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<header id="top">
+  <div class="ledger-grid" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow">Workday Finance &nbsp;·&nbsp; Business Analysis &nbsp;·&nbsp; ERP Transformation</p>
+    <h1>Ajay More</h1>
+    <p class="role">Workday Finance Specialist</p>
+    <p class="summary">
+      Results-oriented Business Analyst with 1.2 years of client-facing experience in business process analysis,
+      requirements gathering, functional documentation, stakeholder engagement, and UAT. Workday Finance trained
+      on the 2025R release, with functional understanding across Financial Accounting, FDM &amp; Worktags,
+      Business Assets, Banking &amp; Settlement, Financial Reporting, Procurement &amp; Expenses.
+    </p>
+    <div class="contact">
+      <a href="mailto:ajaymore13@outlook.com">ajaymore13@outlook.com</a>
+      <a href="tel:+917756950969">+91 7756950969</a>
+      <span>Maharashtra, India</span>
+    </div>
+
+    <div class="ledger-card" aria-label="Engagement summary">
+      <div class="ledger-head"><span><span class="dot"></span>Livegage Technologies — Engagement Ledger</span><span>Rithm Capital</span></div>
+      <div class="ledger-row"><span class="label">Client-facing delivery</span><span class="value" data-count="1.2" data-suffix=" yrs">0 yrs</span></div>
+      <div class="ledger-row"><span class="label">Cross-functional team coordinated</span><span class="value" data-count="19" data-suffix=" members">0 members</span></div>
+      <div class="ledger-row balance"><span class="label">Escalations across engagement</span><span class="value" data-count="0" data-suffix="  — balanced">0 — balanced</span></div>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation">
+  <div class="container nav-inner">
+    <span class="nav-brand">A.MORE / WD-FIN</span>
+    <div class="nav-links">
+      <a class="nav-link" href="#expertise">Expertise</a>
+      <a class="nav-link" href="#case-studies">Case Studies</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#credentials">Education &amp; Certifications</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <section id="expertise">
+    <div class="container">
+      <div class="section-rule reveal"><span class="line"></span><b>Functional capabilities</b></div>
+      <h2 class="reveal">Core Workday Expertise</h2>
+      <p class="section-intro reveal">
+        Functional areas and business-analysis capabilities supported by Ajay's Workday Finance training and
+        professional experience.
+      </p>
+
+      <div class="expertise-grid">
+        <article class="expertise-card reveal">
+          <span class="gl-code">FA</span>
+          <h3>Financial Accounting</h3>
+          <p>Chart of Accounts, accounting periods, journal entries, accounting rules, and financial close processes.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">FDM</span>
+          <h3>FDM &amp; Worktags</h3>
+          <p>Financial Data Model concepts and multidimensional transaction tagging using Cost Centres, Funds, Grants, and Programs.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">BA</span>
+          <h3>Business Assets</h3>
+          <p>Asset lifecycle concepts covering acquisition, capitalization, depreciation schedules, disposals, and general-ledger integration.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">B&amp;S</span>
+          <h3>Banking &amp; Settlement</h3>
+          <p>Bank account configuration, payment processing, and bank reconciliation workflows connecting operational transactions to financial records.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">FR</span>
+          <h3>Financial Reporting</h3>
+          <p>Understanding of balance sheets, income statements, custom financial reports, report fields, and data sources.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">P&amp;E</span>
+          <h3>Procurement &amp; Expenses</h3>
+          <p>Procurement workflows and employee expense management, including transaction flow into the financial accounting layer.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">RPA</span>
+          <h3>Requirements &amp; Process Analysis</h3>
+          <p>BRDs, FRDs, functional specifications, gap analysis, As-Is / To-Be modelling, process mapping, and user stories.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">T&amp;V</span>
+          <h3>Testing &amp; Validation</h3>
+          <p>UAT scenario definition, client-side testing coordination, validation, documentation, and sign-off support.</p>
+        </article>
+
+        <article class="expertise-card reveal">
+          <span class="gl-code">SE</span>
+          <h3>Stakeholder Engagement</h3>
+          <p>Client engagement, workshop facilitation, expectation management, executive reporting, and escalation handling.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <div class="container">
+      <div class="section-rule reveal"><span class="line"></span><b>Selected engagement experience</b></div>
+      <h2 class="reveal">Key Project &amp; Implementation Case Studies</h2>
+      <p class="section-intro reveal">
+        The following case studies are derived from Ajay's documented work on the Rithm Capital engagement.
+        They describe business-analysis outcomes and Workday-relevant functional capabilities without implying
+        direct Workday implementation ownership that is not stated in the resume.
+      </p>
+
+      <article class="case-study reveal">
+        <span class="case-number">Case Study 01</span>
+        <h3>Enterprise Financial Requirements &amp; Process Analysis</h3>
+        <div class="case-grid">
+          <div class="case-part">
+            <h4>Business Context / Scope</h4>
+            <p>
+              Supported Rithm Capital, a large U.S. mortgage-focused asset management firm, on enterprise data
+              initiatives involving financial workflows, reporting hierarchies, and data governance.
+            </p>
+          </div>
+          <div class="case-part">
+            <h4>Functional Approach &amp; Configuration</h4>
+            <ul>
+              <li>Elicited and validated requirements with finance and business stakeholders.</li>
+              <li>Performed gap analysis and developed As-Is / To-Be process maps.</li>
+              <li>Created BRDs, FRDs, and functional specifications with end-to-end traceability.</li>
+              <li>Mapped financial data flows and business logic to system-level requirements.</li>
+            </ul>
+          </div>
+          <div class="case-part">
+            <h4>Business Outcomes &amp; ROI</h4>
+            <ul>
+              <li>Established a structured source of truth across business, QA, and delivery teams.</li>
+              <li>Improved alignment between business requirements and delivered outcomes.</li>
+              <li>Built enterprise-level exposure directly relevant to finance ERP transformation engagements.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-study reveal">
+        <span class="case-number">Case Study 02</span>
+        <h3>UAT, Stakeholder Alignment &amp; Delivery Governance</h3>
+        <div class="case-grid">
+          <div class="case-part">
+            <h4>Business Context / Scope</h4>
+            <p>
+              Coordinated business and delivery stakeholders through requirements workshops, testing activities,
+              progress reporting, and client-side validation for a high-stakes enterprise engagement.
+            </p>
+          </div>
+          <div class="case-part">
+            <h4>Functional Approach &amp; Configuration</h4>
+            <ul>
+              <li>Defined UAT test scenarios with QA teams.</li>
+              <li>Coordinated client testing sessions and documented sign-off.</li>
+              <li>Facilitated business review workshops and captured unstated requirements.</li>
+              <li>Presented executive dashboards and sprint reports to leadership.</li>
+            </ul>
+          </div>
+          <div class="case-part">
+            <h4>Business Outcomes &amp; ROI</h4>
+            <ul>
+              <li>Maintained zero client escalations across 1.2 years of client-facing delivery.</li>
+              <li>Supported informed decisions on delivery timelines and resources.</li>
+              <li>Built trusted relationships with finance leads, data owners, and project sponsors.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-rule reveal"><span class="line"></span><b>Professional experience</b></div>
+      <h2 class="reveal">Experience</h2>
+      <div class="info-card reveal">
+        <h3>Livegage Technologies Pvt Ltd — Business Analyst</h3>
+        <div class="experience-meta">
+          <span>1.2 years</span>
+          <span>Client: Rithm Capital</span>
+          <span>Finance &amp; enterprise data initiatives</span>
+        </div>
+        <p>
+          Primary liaison between business users and the internal delivery team, responsible for requirements
+          elicitation, process analysis, functional documentation, UAT coordination, stakeholder communication,
+          executive reporting, and delivery support.
+        </p>
+        <div class="highlight-row">
+          <div class="highlight">
+            <strong data-count="1.2" data-suffix=" years">0 years</strong>
+            <span>Client-facing delivery experience</span>
+          </div>
+          <div class="highlight">
+            <strong data-count="19" data-suffix=" members">0 members</strong>
+            <span>Cross-functional team coordinated</span>
+          </div>
+          <div class="highlight">
+            <strong data-count="0" data-suffix=" escalations">0 escalations</strong>
+            <span>Across the documented client engagement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="container">
+      <div class="section-rule reveal"><span class="line"></span><b>Academic &amp; professional foundation</b></div>
+      <h2 class="reveal">Education &amp; Certifications</h2>
+
+      <div class="two-col">
+        <div class="info-card reveal">
+          <h3>Certifications &amp; Training</h3>
+          <div class="credential">
+            <div class="credential-top"><strong>Workday Finance — 2025R Functional Training</strong></div>
+            <span>
+              Trained in Financial Accounting, FDM &amp; Worktags, Business Assets, Banking &amp; Settlement,
+              Financial Reporting, and Procurement &amp; Expenses.
+            </span>
+          </div>
+          <div class="credential">
+            <div class="credential-top">
+              <strong>Financial Modelling &amp; Valuation Certification</strong>
+              <span class="badge-progress"><span class="pulse"></span>In Progress</span>
+            </div>
+            <span>
+              Financial Statement Analysis, DCF Valuation, and Excel-based Financial Modelling.
+            </span>
+          </div>
+        </div>
+
+        <div class="info-card reveal">
+          <h3>Education</h3>
+          <div class="credential">
+            <strong>Bachelor of Arts (Psychology)</strong>
+            <span>YCMOU, Nashik</span>
+          </div>
+          <p>
+            Academic background supporting active listening, stakeholder empathy, and communication in
+            client-facing environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-rule reveal"><span class="line"></span><b>Professional profile</b></div>
+      <h2 class="reveal">Why Workday Finance</h2>
+      <p class="section-intro reveal">
+        Ajay combines Workday Finance functional training with practical business-analysis experience in
+        requirements, process modelling, financial data flows, UAT, and stakeholder management. His focus is
+        building the functional consulting capability needed to bridge finance stakeholders and enterprise systems.
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="mailto:ajaymore13@outlook.com">Email Ajay</a>
+        <a class="btn btn-ghost" href="tel:+917756950969">Call +91 7756950969</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <h2>Let's connect</h2>
+    <p>Workday Finance Specialist</p>
+    <div class="footer-contact">
+      <a href="mailto:ajaymore13@outlook.com">ajaymore13@outlook.com</a>
+      <a href="tel:+917756950969">+91 7756950969</a>
+      <span>Maharashtra, India</span>
+    </div>
+    <div class="footer-rule" aria-hidden="true"></div>
+    <p class="footer-note">Financial Accounting · FDM &amp; Worktags · Business Assets · Banking &amp; Settlement · Financial Reporting · Procurement &amp; Expenses</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress bar */
+  var progress = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = (isFinite(scrolled) ? scrolled : 0) + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  /* cursor glow — desktop pointer only */
+  var glow = document.getElementById('cursorGlow');
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(canHover && !reduceMotion){
+    window.addEventListener('mousemove', function(e){
+      glow.style.opacity = '1';
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    }, { passive:true });
+    document.addEventListener('mouseleave', function(){ glow.style.opacity = '0'; });
+  }
+
+  /* scroll-reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* count-up numbers */
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var isDecimal = String(target).indexOf('.') !== -1;
+    if(reduceMotion){
+      el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+      return;
+    }
+    var duration = 1100;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progressRatio = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progressRatio, 3);
+      var current = target * eased;
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+      if(progressRatio < 1){ requestAnimationFrame(step); }
+      else { el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.6 });
+    counters.forEach(function(el){ cio.observe(el); });
+  } else {
+    counters.forEach(animateCount);
+  }
+
+  /* scrollspy nav */
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.nav-link');
+  function setActive(id){
+    navLinks.forEach(function(link){
+      var match = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('active', match);
+      if(match){ link.setAttribute('aria-current','true'); } else { link.removeAttribute('aria-current'); }
+    });
+  }
+  if('IntersectionObserver' in window){
+    var sio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ setActive(entry.target.id); }
+      });
+    }, { rootMargin:'-40% 0px -50% 0px', threshold:0 });
+    sections.forEach(function(sec){ sio.observe(sec); });
+  }
+})();
+</script>
+</body>
+</html>
